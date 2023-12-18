@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Nunito:wght@200;400&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(243, 232, 211);
+        font-family: 'Nunito', sans-serif;
+        overflow-y: hidden;
+    }
+    
+    .container {
+        /* border: 2px solid black; */
+        width: 25%;
+        height: 60vh;
+        background-color: white;
+        border-radius: 10px;
+        overflow-y: scroll;
+        padding: 20px;
+    }
+    
+    .container::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .input_div {
+        border: 1px solid rgb(235, 227, 227);
+        padding: 10px;
+    }
+    
+    .input_div input {
+        border: none;
+        outline: none;
+        padding-left: 20px;
+    }
+    
+    .products {
+        display: flex;
+        /* border: 2px solid black; */
+        /* text-align: center; */
+        align-items: center;
+    }
+    
+    .products img {
+        height: 60px;
+        width: 60px;
+        margin-top: 10px;
+    }
+    
+    .product_list {
+        padding-top: 10px;
+        /* border: 2px solid black; */
+    }
+    /* .products {
+        display: none;
+    } */
+    
+    .products h3,
+    h4 {
+        margin: 0px;
+        padding-left: 30px;
+    }
+</style>
+
+<body>
+
+    <div class="container" id="my_container">
+        <div class="input_div" id="my_input_div">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="my_input_field" onkeyup="searchFun()">
+        </div>
+        <div class="product_list" id="my_product_list">
+            <div class="products">
+                <img src="./images/white s.jpg" alt="">
+                <div class="details">
+                    <h3>
+                        White sneakers
+                    </h3>
+                    <h4>
+                        $25
+                    </h4>
+                </div>
+            </div>
+            <div class="products">
+                <img src="./images/black s.jpg" alt="">
+                <div class="details">
+                    <h3>
+                        Black sneakers
+                    </h3>
+                    <h4>
+                        $30
+                    </h4>
+                </div>
+            </div>
+            <div class="products">
+                <img src="./images/red s.jpg" alt="">
+                <div class="details">
+                    <h3>
+                        Red sneakers
+                    </h3>
+                    <h4>
+                        $35
+                    </h4>
+                </div>
+            </div>
+            <div class="products">
+                <img src="./images/yellow s.jpg" alt="">
+                <div class="details">
+                    <h3>
+                        Yellow sneakers
+                    </h3>
+                    <h4>
+                        $40
+                    </h4>
+                </div>
+            </div>
+            <div class="products">
+                <img src="./images/blue s.jpg" alt="">
+                <div class="details">
+                    <h3>
+                        Blue sneakers
+                    </h3>
+                    <h4>
+                        $45
+                    </h4>
+                </div>
+            </div>
+            <div class="products">
+                <img src="./images/white t.jpg" alt="">
+                <div class="details">
+                    <h3>
+                        White T-shirt
+                    </h3>
+                    <h4>
+                        $50
+                    </h4>
+                </div>
+            </div>
+            <div class="products">
+                <img src="./images/black t.jpg" alt="">
+                <div class="details">
+                    <h3>
+                        Black T-shirt
+                    </h3>
+                    <h4>
+                        $55
+                    </h4>
+                </div>
+            </div>
+            <div class="products">
+                <img src="./images/yellow t.jpg" alt="">
+                <div class="details">
+                    <h3>
+                        Yellow T-shirt
+                    </h3>
+                    <h4>
+                        $60
+                    </h4>
+                </div>
+            </div>
+            <div class="products">
+                <img src="./images/blue t.jpg" alt="">
+                <div class="details">
+                    <h3>
+                        Blue T-shirt
+                    </h3>
+                    <h4>
+                        $65
+                    </h4>
+                </div>
+            </div>
+            <div class="products">
+                <img src="./images/red t.jpg" alt="">
+                <div class="details">
+                    <h3>
+                        Red T-shirt
+                    </h3>
+                    <h4>
+                        $70
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    const searchFun = () => {
+        let my_input_field = document.getElementById('my_input_field').value.toUpperCase();
+        let my_product_list = document.getElementById('my_product_list');
+        let products = document.querySelectorAll(".products")
+        let details = document.querySelectorAll(".details")
+
+        for (var i = 0; i < details.length; i++) {
+            var h3 = details[i].getElementsByTagName("h3")[0].innerHTML
+            console.log(details)
+                // let textvalue = h3.textContent || h3.innerHTML
+            if (h3.toUpperCase().indexOf(my_input_field) > -1) {
+                products[i].style.display = "inlineBlock"
+            } else {
+                products[i].style.display = "none"
+
+            }
+
+
+
+        }
+
+    }
+</script>
+
+</html>
